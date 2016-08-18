@@ -24,7 +24,7 @@ CREATE VIEW count_players AS
 CREATE VIEW matches_played AS
     SELECT players.name, players.player_id, count (matches.match_id) as played
     FROM players LEFT JOIN matches
-	ON players.player_id = matches.winner
+	ON players.player_id = matches.winner OR players.player_id = matches.loser
     GROUP BY players.player_id
     ;
 
