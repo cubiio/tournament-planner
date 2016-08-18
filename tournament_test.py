@@ -87,10 +87,13 @@ def testReportMatches():
     for (i, n, w, m) in standings:
         if m != 1:
             raise ValueError("Each player should have one match recorded.")
+            print m 
         if i in (id1, id3) and w != 1:
             raise ValueError("Each match winner should have one win recorded.")
+            print i 
         elif i in (id2, id4) and w != 0:
             raise ValueError("Each match loser should have zero wins recorded.")
+            print i 
     print "7. After a match, players have updated standings."
     deleteMatches()
     standings = playerStandings()
