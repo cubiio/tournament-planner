@@ -21,11 +21,13 @@ Tournament code and test code are in Python. The database is in PostgreSQL.
 * Fire up Vagrant `vagrant up` and when the prompt reappears `vagrant ssh` to log in
 * To connect first `psql` then connect to the tournament db `\c tournament`
 * If the db does not yet exist, create the db `CREATE DATABASE tournament` and to build the db with tables and views import the .sql file `\i tournament.sql`
+* Note, code is included in the `tournament.sql` file to create a new DB called tournament
 
 ### Python Tournament
 * Load a new Terminal and `cd` to folder where Vagrant is located.
 * Fire up Vagrant `vagrant up` and when the prompt reappears `vagrant ssh`
-* Change directory to the tournament folder `cd /vagrant/tournament` and then `psql`
+* Change directory to the tournament folder `cd /vagrant/tournament`
+* The terminal prompt should read `vagrant@vagrant-ubuntu-trusty-32:/vagrant/tournament$`
 * To run the tournament test code type `python tournament_test.py`
 
 ## Usage examples
