@@ -1,5 +1,9 @@
 -- Table definitions for the tournament project.
---
+
+-- Create tournament database
+DROP DATABASE IF EXISTS tournament;
+CREATE DATABASE tournament;
+\c tournament
 
 -- table to store player name and id number (auto assigned via serial type)
 CREATE TABLE players (player_id	SERIAL PRIMARY KEY, name TEXT NOT NULL);
@@ -13,7 +17,7 @@ CREATE TABLE matches (
 	FOREIGN KEY (loser) REFERENCES players (player_id)
 	);
 
--- view: counts all players; 
+-- view: counts all players;
 CREATE VIEW count_players AS
 	SELECT player_id, count (*) as num
 	FROM players
@@ -42,6 +46,6 @@ CREATE VIEW standings AS
 	COALESCE (wins.wins,0) AS wins,
 	matches_played.played
 	FROM matches_played
-	LEFT JOIN wins ON matches_played.player_id = wins.winner 
+	LEFT JOIN wins ON matches_played.player_id = wins.winner
 	ORDER BY wins DESC
 	;
